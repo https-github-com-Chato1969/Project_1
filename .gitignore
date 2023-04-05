@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+README.md
+Project1.Rmd
+ponses to be more generic and automatic such that they are created based on data pulled automatically from the table. Fixed typos and minor bugs.

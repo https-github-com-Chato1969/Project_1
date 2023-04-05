@@ -1,0 +1,290 @@
+---
+title: "CSIT-165 Vignette"
+author: "Troy R. Alva"
+date: 
+output: 
+  html_document:
+    theme: flatly
+    toc: true
+    toc_depth: 3
+    toc_float: true
+---
+
+## Documentation
+
+### Formatting
+
+R Markdown documents are created using the R packages **rmarkdown** and **knitr**.
+These packages are used to create a variety of different documents including html, pdf, word, and powerpoint to name a few. 
+General formatting is specified in the *YAML*. 
+
+```
+title: "TITLE"
+author: "NAME"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 3
+```
+
+In the example above, we can see that the *YAML* supplies formatting instructions that are read sequentially. 
+For the output, we are specifying that we want to create a pdf document that contains a table of contents with a depth of three.
+For a more thorough explanation of R Markdown's features, I recommend the following: [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+If you would like to explore more custom control of document formatting without adapting to a completely different system, I recommend the following: [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/)
+
+### Code chunks
+
+Code that is to be executed (rather than just displayed as formatted text) is called a **code chunk**.
+To specify a code chunk, you need to include **{r}** immediately after the backticks that start the code block (the **```**).
+```
+{r options_example, echo = FALSE, message = FALSE}
+```
+
+In the example above, we name the code chunk **options_example**.
+After naming the code chunk (if you don't name the code chunk R Markdown will name it randomly for you!), specify chunk options after the first comma. 
+Here we use `echo` and `message` which tells R Markdown not to show source code and not to show warning messages output from R code. 
+For a complete list of **knitr** code chunk options, please see the following: [Chunk options and package options](https://yihui.org/knitr/options/).
+
+## Vectors
+
+Vectors are the fundamental data type in R.
+That is, everything is a vector!
+Vectors are a collections  of elements that are all the same type (logical, numeric, and character).
+Create vectors using the `c()` function. 
+
+```{r}
+vector <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print(vector)
+```
+
+We can create vectors using other ways as well.
+
+```{r}
+vector <- 1:10 # Colon operator generate sequences
+print(vector)
+
+vector <- seq(1, 10) # We can also use the seq() function
+print(vector)
+
+vector <- seq(1, 10, by = 0.5) # We can control the increment when generating sequences
+print(vector)
+
+vector <- rep(NA, times = 10) # rep() is good for creating a vector of repeated values (convenient for initializing a variable before a loop)
+print(vector)
+```
+
+We can determine the length of a vector using the `length()` function.
+
+```{r}
+length(vector)
+```
+
+Subsetting vectors is easy using `[]` and `[[]]`.
+
+```{r}
+vector <- 1:10
+
+vector[1]
+vector[[1]]
+vector[3]
+vector[[3]]
+```
+
+When we remember that everything is a vector (even if it only has a length of 1) we have tremendous power in our ability to subset. 
+We can subset vectors with vectors in many ways. 
+
+```{r}
+## Lets try subsetting using an index vector
+desired_indices <- c(1, 3, 8)
+letters[desired_indices]
+
+## The order of the index vector matters!
+letters[c(1, 3, 8)]
+letters[c(8, 1, 3)]
+
+## We can use function outputs as index vectors too
+letters[3:14]
+letters[seq(3, 14)]
+letters[seq(1, length(letters), 2)] # We can use this principle to subset every other element in a vector
+
+## We can also use logical vectors to subset 
+less_than_five <- vector < 5 
+print(less_than_five)
+class(less_than_five)
+
+vector[less_than_five] # When we subset with a logical vector we return elements that are TRUE
+vector[vector < 5] # We can do this without declaring a new variable too!
+```
+
+It is important to note that `[]` and `[[]]` handle index vectors differently in that `[]` can handle index vectors with more than one element and `[[]]` can only handle index vectors with one element. 
+
+``` {r, eval = FALSE}
+letters[1:10] # OK
+letters[[1:10]] # ERROR
+```
+
+We can use these principles to modify vectors.
+
+```{r}
+### We can modify specific elements of vector
+## Using index vector
+# Using seq() function
+vector[seq(1, length(vector), 2)] <- vector[seq(1, length(vector), 2)] * 2 # Multiples every other element by two
+print(vector)
+
+# Using length() to add a new element
+vector[length(vector) + 1] <- "New Element"
+print(vector)
+
+## Using logical vector
+vector[vector < 5] <- "Small Number"
+print(vector) # print() will coerce all elements to most flexible data type used (i.e. character)
+```
+
+## Lists
+
+Lists are very similar to vectors but are different in various ways. 
+1. Lists can store more than one type of data
+  - Lists can store numerics, logicals, characters, vectors, and even other lists.
+  
+```{r}
+list_example <- list(alphabet = letters,
+                     capitals = LETTERS,
+                     f = letters == "f",
+                     element = seq(1, length(letters)))
+print(list_example)
+```
+
+2. Lists have element tags for unique accession
+
+```{r}
+# Use $ to access element of list and returns vectors
+list_example$alphabet
+list_example$element
+
+print(paste0(list_example$element, ": ", list_example$alphabet))
+
+# We can nest $ for nested lists
+new_list <- list(hundred = 1:100)
+new_list$hundred
+list_example$new <- new_list # Adds a new element to list_example that is also a list
+list_example$new$hundred # Uses two $ to access an element in a list in a list
+```
+
+Lists are also able to be subsetted using `[]` and `[[]]`.
+When we use `[]` with lists, however, it will return a list (whereas with a vector it will return a vector).
+When we use `[[]]` it will return whatever data type is stored in that element of the list.
+This can be a character, a numeric, or logical vector, or even another list.
+
+```{r}
+list_example[1]
+class(list_example[1])
+
+list_example[[1]]
+class(list_example[[1]])
+
+list_example[5]
+class(list_example[5])
+
+list_example[[5]]
+class(list_example[[5]])
+```
+
+The `[]` function has unique functionality with lists as opposed to vectors in that you can also specify the name of the list element as a string.
+
+```{r}
+list_example["capitals"]
+list_example[c("capitals", "alphabet")]
+```
+
+## Controlling flow
+
+Control statements allow us to compute things based on their value. 
+The most common test to do this is `if`, `else`, and `else if`. 
+`if` and `else` statements can be thought of by saying "if _____ is true then do this, else do this if it is false" where _____ is a conditional statement (like `x == 1`, `x > 1`, `x >= 1`, `x < 1`, `x <= 1`, `x != 1`, `is.numeric(x)`, etc).
+`if else` statements are used to control flow for new conditions.
+
+```{r}
+if (is.list(list_example)) cat("This is a list!\n")
+
+if (is.numeric(list_example)) {
+  cat("This is a numeric vector!\n")
+  } else if (is.character(list_example)) {
+  cat("This is a character vector!\n")
+  } else {
+  cat("This is not a numeric or character vector!\n")
+}
+```
+
+Sometimes we want to be able to automate through a vector, list, or data frame to perform computations on each element in that object.
+R makes it easy for us with vectors and lists. 
+Vectorized functions are both fast and intuitive. 
+The `apply` family of functions for vectors, lists, data frames and many more is also fast and intuitive. 
+Despite having these options, R also provides us with the ability to iterate (moving through elements in a data object) using `for` and `while` loops. 
+These loops may function more slowly but sometimes they are necessary (though you should reconsider your analysis before deciding to use them).
+
+## Functions
+
+Functions are useful for doing something the same way repeatably.
+
+## Data frames
+
+Data frames are the predominate data form used in data science. 
+Data frames share alot of functionality with lists and can be manipulated in a similar manner. 
+
+```{r, eval = FALSE}
+library(dplyr)
+```
+
+```{r, include = FALSE}
+library(dplyr)
+```
+
+
+```{r}
+# Load starwars data set from dplyr package
+data("starwars")
+starwars # starwars prints like this because it is a tibble (tibbles will be discussed shortly but are handled nearly the same way as data frames)
+
+# Starwars has 87 rows representing a different starwars character 
+nrow(starwars)
+
+# Starwars is a data set with 13 different columns
+length(starwars)
+
+## Lets subset starwars data set for human characters. How?
+
+# Species is a character vector that returns TRUE at indices that meet the condition specified (species == "Human")
+starwars$species == "Human"
+
+# We use this logical vector to subset our data frame (just like vectors and lists!)
+# The blank space after the comma tells R to return all columns to rows where species is human
+starwars[starwars$species == "Human", ]
+
+# What if we were only interested in the homeworlds and names for humans in starwars? 
+starwars[starwars$species == "Human", c("name", "homeworld")]
+
+# What if we wanted to find the max mass for people of different home worlds and make it a data frame?
+homeworlds <- unique(starwars$homeworld)
+
+max_mass <- rep(NA, length(homeworlds))
+for (i in 1:length(homeworlds)) {
+  max_mass[i] <- max(as.data.frame(starwars)[starwars$homeworld == homeworlds[i], "mass"], na.rm = TRUE)
+}
+
+homeworld_masses <- data.frame("Homeworld" = homeworlds,
+                              "Max.Mass" = max_mass)
+
+# We can use subsetting to order this table by decreasing mass (in this example we are limiting the results to the top ten)
+homeworld_masses <- homeworld_masses[order(homeworld_masses$Average.Mass, decreasing = TRUE)[1:10], ]
+print(homeworld_masses, row.names = FALSE)
+
+# We can turn this into a table using kable
+library(knitr)
+library(kableExtra)
+
+kable(homeworld_masses, row.names = FALSE) %>% 
+  kable_styling(bootstrap_options = c("condensed", "hover"))
+```
