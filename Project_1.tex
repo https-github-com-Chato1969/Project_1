@@ -1,0 +1,903 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Project 1},
+  pdfauthor={Name: Wesley Newcomb Partner: Manuel Ricardo Vargas and Diva Medina Camp},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project 1}
+\author{Name: Wesley Newcomb Partner: Manuel Ricardo Vargas and Diva
+Medina Camp}
+\date{2023-04-06}
+
+\begin{document}
+\maketitle
+
+\hypertarget{background}{%
+\subsection{Background}\label{background}}
+
+The World Health Organization has recently employed a new data science
+initiative, \emph{CSIT-165}, that uses data science to characterize
+pandemic diseases. \emph{CSIT-165} disseminates data driven analyses to
+global decision makers.
+
+\emph{CSIT-165} is a conglomerate comprised of two fabricated entities:
+\emph{Global Health Union (GHU)} and \emph{Private Diagnostic
+Laboratories (PDL)}. Your and your partner's role is to play a data
+scientist from one of these two entities.
+
+\hypertarget{data}{%
+\subsection{Data}\label{data}}
+
+\begin{quote}
+\href{https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series}{2019
+Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by John Hopkins
+CSSE} Data for 2019 Novel Coronavirus is operated by the John Hopkins
+University Center for Systems Science and Engineering (JHU CSSE). Data
+includes daily time series CSV summary tables, including confirmations,
+recoveries, and deaths. Country/region are countries/regions hat conform
+to World Health Organization (WHO). Lat and Long refer to coordinates
+references for the user. Date fields are stored in MM/DD/YYYY format.
+\end{quote}
+
+For this project, we will use global data sets for COVID-19 associated
+confirmations and deaths.
+
+In order to download these files without cloning the whole repository,
+enter one of two commands in your terminal depending on your machine:
+
+Windows wget \url{https://address.to.data/goes/here.csv} Mac curl
+\url{https://address.to.data/goes/here.csv} -O
+
+\hypertarget{instructions}{%
+\subsubsection{Instructions}\label{instructions}}
+
+The World Health Organization has recently employed a new data science
+initiative, CSIT-165, that uses data science to characterize pandemic
+diseases. CSIT-165 disseminates data driven analyses to global decision
+makers.
+
+CSIT-165 is a conglomerate comprised of two fabricated entities: Global
+Health Union (GHU) and Private Diagnostic Laboratories (PDL). Your and
+your partner's role is to play a data scientist from one of these two
+entities. Discuss with your partner to decide who will be part of GHU
+and PDL.
+
+\hypertarget{getting-started}{%
+\subsubsection{Getting Started}\label{getting-started}}
+
+One project member per group must create a new repository on GitHub.
+Initialize this repository with a readme.md file that lists each member
+of the group. If your group decides to collaborate using a centralized
+workflow (recommended), then the project member that created the
+repository must declare their partners as collaborators in GitHub. Each
+project member will clone this repository onto their machine using
+RStudio. In RStudio, create a project from version control with GitHub
+using the HTTP address of the repository created by project member.
+
+All project members must first contribute to analyses by uploading data
+sets respective to the entity they belong to in the CSIT-165 initiative.
+GHU project members provide time series data counting COVID-19 related
+recoveries and and deaths. PDL project members provide time series data
+counting COVID-19 related confirmations.
+
+\hypertarget{project-objectives}{%
+\subsection{Project Objectives}\label{project-objectives}}
+
+This project will encompass many of the lessons we have learned
+throughout the course. RMarkdown files must be written such that each
+time you render the document it will download the necessary data sets
+for analysis. Please render the RMarkdown file the day it is due to
+reflect the most recent data sets. With this added functionality, your
+code must be able to analyze the datasets regardless of the date you
+render your document.
+
+\hypertarget{objective-1}{%
+\subsubsection{Objective 1}\label{objective-1}}
+
+CSIT-165's first objective is to determine where COVID-19 originated
+from. Predict where the origin started based on the area with the
+greatest number of confirmations and deaths on the first recorded day in
+the data set. Show this is the origin using an if statement.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_confirmed\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{deaths\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_deaths\_global.csv"}\NormalTok{, }
+                    \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{recovered\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_recovered\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+
+\DocumentationTok{\#\# Confirmed Dataset}
+\NormalTok{confirmed\_ordered}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(confirmed\_df, }\SpecialCharTok{{-}}\NormalTok{X1.}\FloatTok{22.20}\NormalTok{), }
+\NormalTok{                          Province.State, Country.Region, X1.}\FloatTok{22.20}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confirmed Dataset "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confirmed Dataset
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(confirmed\_ordered)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Province.State Country.Region X1.22.20
+## 1          Hubei          China      444
+## 2      Guangdong          China       26
+## 3        Beijing          China       14
+## 4       Zhejiang          China       10
+## 5       Shanghai          China        9
+## 6      Chongqing          China        6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Deaths Dataset}
+\NormalTok{death\_ordered}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(deaths\_df, }\SpecialCharTok{{-}}\NormalTok{X1.}\FloatTok{22.20}\NormalTok{), }
+\NormalTok{                      Province.State, Country.Region, X1.}\FloatTok{22.20}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Deaths Dataset "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Deaths Dataset
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(death\_ordered)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Province.State Country.Region X1.22.20
+## 1          Hubei          China       17
+## 2                   Afghanistan        0
+## 3                       Albania        0
+## 4                       Algeria        0
+## 5                       Andorra        0
+## 6                        Angola        0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Recovered Dataset}
+\NormalTok{recovered\_ordered}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(recovered\_df, }\SpecialCharTok{{-}}\NormalTok{X1.}\FloatTok{22.20}\NormalTok{), }
+\NormalTok{                          Province.State, Country.Region, X1.}\FloatTok{22.20}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Recovered Dataset }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Recovered Dataset
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(recovered\_ordered)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Province.State Country.Region X1.22.20
+## 1          Hubei          China       28
+## 2                      Thailand        2
+## 3                   Afghanistan        0
+## 4                       Albania        0
+## 5                       Algeria        0
+## 6                       Andorra        0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\StringTok{", "}\NormalTok{, confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], }
+    \StringTok{" has the most confirmed cases on the first day. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }
+\NormalTok{    death\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\StringTok{", "}\NormalTok{, death\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], }
+    \StringTok{" has the most deaths from the virus on the first day. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
+\NormalTok{    recovered\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\StringTok{", "}\NormalTok{, recovered\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], }
+    \StringTok{" has the most recovered cases from the virus on the first day. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }
+    \AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Hubei, China has the most confirmed cases on the first day. 
+## Hubei, China has the most deaths from the virus on the first day. 
+## Hubei, China has the most recovered cases from the virus on the first day.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==}\NormalTok{ death\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\&\&} 
+\NormalTok{    confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==}\NormalTok{ recovered\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{\&\&} 
+\NormalTok{    death\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==}\NormalTok{ recovered\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{])}
+\NormalTok{\{}
+  \FunctionTok{cat}\NormalTok{(confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{], }\StringTok{", "}\NormalTok{, confirmed\_ordered[}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{], }
+    \StringTok{" is the most likely origin of the virus. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Hubei, China is the most likely origin of the virus.
+\end{verbatim}
+
+Based on the data above: Hubei, China is the most likely origin of the
+virus. This is based on Hubei, China having by far the most confirmed
+cases and is the only region with any recoveries or deaths on the first
+day of data avaliable. Also, all other regions that have confirmed cases
+on the first day are regions that are near Hubei. The conditional
+statement also proves that Hubei is the most likely origin of the virus
+because it shows that the place with the most deaths, recovered, and
+confirmed cases on the first day is Hubei.
+
+\hypertarget{objective-2}{%
+\subsubsection{Objective 2}\label{objective-2}}
+
+Where is the most recent area to have a first confirmed case? To do
+this, you will need to use a for loop, if statement, and subsets.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_confirmed\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{recent\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(confirmed\_df[confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \DecValTok{0} 
+                                \SpecialCharTok{\&}\NormalTok{ confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,])}
+
+\NormalTok{i}\OtherTok{\textless{}{-}}\DecValTok{0}
+\CommentTok{\# If there are no new cases today loop back to find most recent region}
+\CommentTok{\# to have new cases}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(recent\_df) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+  \ControlFlowTok{while}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(recent\_df) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+\NormalTok{    i}\OtherTok{\textless{}{-}}\NormalTok{i}\SpecialCharTok{+}\DecValTok{1}
+\NormalTok{    recent\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(confirmed\_df[confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{i] }\SpecialCharTok{==} \DecValTok{0} 
+                                \SpecialCharTok{\&}\NormalTok{ confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\NormalTok{i] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,])}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\FunctionTok{head}\NormalTok{(}\FunctionTok{select}\NormalTok{(recent\_df, Province.State, Country.Region, }\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{i, }
+            \FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\NormalTok{i))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Province.State Country.Region X7.19.22 X7.20.22
+## 1 Pitcairn Islands United Kingdom        0        4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vector is small enough that loop is reasonable}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(recent\_df))}
+\NormalTok{\{}
+  \ControlFlowTok{if}\NormalTok{ (recent\_df[i,}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \StringTok{""}\NormalTok{) \{}
+    \FunctionTok{cat}\NormalTok{(recent\_df[i,}\DecValTok{2}\NormalTok{], }\StringTok{"has recently had their first confirmed case. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{  \} }\ControlFlowTok{else}\NormalTok{ \{}
+    \ControlFlowTok{if}\NormalTok{ (recent\_df[i,}\DecValTok{2}\NormalTok{] }\SpecialCharTok{==} \StringTok{""}\NormalTok{) \{}
+      \FunctionTok{cat}\NormalTok{(recent\_df[i,}\DecValTok{1}\NormalTok{], }\StringTok{"has recently had their first confirmed case. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+      \FunctionTok{cat}\NormalTok{(recent\_df[i,}\DecValTok{1}\NormalTok{], }\StringTok{", "}\NormalTok{, recent\_df[i,}\DecValTok{2}\NormalTok{], }
+          \StringTok{" has recently had their first confirmed case. }\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Pitcairn Islands, United Kingdom has recently had their first confirmed case.
+\end{verbatim}
+
+Most recent territories were found by going through the data and
+selecting the countries that did not have cases before yesterday and had
+their first cases today. If there are no regions meeting this check,
+then each previous day is looked at until there are regions found with
+new cases.
+
+\hypertarget{objective-3}{%
+\subsubsection{Objective 3}\label{objective-3}}
+
+How far away are the areas from objective 2 from where the first
+confirmed case(s) occurred? Please provide answer(s) in terms of miles.
+Use the function distm from the R package geosphere to calculate the
+distance between two coordinates in meters (geosphere::distm). You will
+need to convert the value returned by distm from meters to miles (this
+conversion is simple and can be found online). Please use a table or
+printed statement to describe what Province/State and Country/Region
+first confirmed cases occurred as well as the distance (in miles) away
+from the origin. Please print the following: \{recent region\} is
+\{distance in miles\} away from \{origin city, origin country\}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{origin\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(confirmed\_df, }\SpecialCharTok{{-}}\NormalTok{X1.}\FloatTok{22.20}\NormalTok{)[}\DecValTok{1}\NormalTok{,]}
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_confirmed\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{recent\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(confirmed\_df[confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{] }\SpecialCharTok{==} \DecValTok{0} 
+                                \SpecialCharTok{\&}\NormalTok{ confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,])}
+\NormalTok{i}\OtherTok{\textless{}{-}}\DecValTok{0}
+
+\CommentTok{\# If there are no new cases today loop back to find most recent region}
+\CommentTok{\# to have new cases}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(recent\_df) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+  \ControlFlowTok{while}\NormalTok{ (}\FunctionTok{nrow}\NormalTok{(recent\_df) }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+\NormalTok{    i}\OtherTok{\textless{}{-}}\NormalTok{i}\SpecialCharTok{+}\DecValTok{1}
+\NormalTok{    recent\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(confirmed\_df[confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\NormalTok{i] }\SpecialCharTok{==} \DecValTok{0} 
+                                \SpecialCharTok{\&}\NormalTok{ confirmed\_df[,}\FunctionTok{ncol}\NormalTok{(confirmed\_df)}\SpecialCharTok{{-}}\NormalTok{i] }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{,])}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\CommentTok{\# Compute distances from origin}
+\NormalTok{distances}\OtherTok{\textless{}{-}}\FunctionTok{distm}\NormalTok{(}\FunctionTok{select}\NormalTok{(recent\_df, Long, Lat), }\FunctionTok{select}\NormalTok{(origin\_df, Long, Lat))}
+
+\CommentTok{\# Convert from m to miles}
+\NormalTok{distances}\OtherTok{\textless{}{-}}\NormalTok{distances }\SpecialCharTok{*} \FloatTok{0.00062137}
+
+\CommentTok{\# Add distance from origin to dataframe and sort by distance}
+\NormalTok{recent\_df}\SpecialCharTok{$}\NormalTok{distance}\OtherTok{\textless{}{-}}\NormalTok{distances[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{recent\_df}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(recent\_df, distance)}
+
+\FunctionTok{head}\NormalTok{(}\FunctionTok{select}\NormalTok{(recent\_df, Province.State, Country.Region, Lat, Long, distance))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Province.State Country.Region      Lat      Long distance
+## 1 Pitcairn Islands United Kingdom -24.3768 -128.3242  8746.96
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Vector is small enough that loop is reasonable}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(recent\_df)) \{}
+\NormalTok{  city}\OtherTok{\textless{}{-}}\NormalTok{recent\_df[i, }\StringTok{"Province.State"}\NormalTok{]}
+  
+  \CommentTok{\# If there is no city use country}
+  \ControlFlowTok{if}\NormalTok{ (city }\SpecialCharTok{==} \StringTok{""}\NormalTok{) \{}
+\NormalTok{    city}\OtherTok{\textless{}{-}}\NormalTok{recent\_df[i, }\StringTok{"Country.Region"}\NormalTok{]}
+\NormalTok{  \}}
+  
+  \FunctionTok{cat}\NormalTok{(city, }\StringTok{"is"}\NormalTok{, recent\_df[i, }\StringTok{"distance"}\NormalTok{], }
+      \StringTok{"miles away from the virus origin in"}\NormalTok{, }
+      \FunctionTok{paste0}\NormalTok{(origin\_df[}\DecValTok{1}\NormalTok{, }\StringTok{"Province.State"}\NormalTok{], }\StringTok{","}\NormalTok{), }
+      \FunctionTok{paste0}\NormalTok{(origin\_df[}\DecValTok{1}\NormalTok{, }\StringTok{"Country.Region"}\NormalTok{], }\StringTok{"."}\NormalTok{), }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Pitcairn Islands is 8746.96 miles away from the virus origin in Hubei, China.
+\end{verbatim}
+
+\hypertarget{objective-4}{%
+\subsubsection{Objective 4}\label{objective-4}}
+
+CSIT-165 characterizes diseases using risk scores. Risk scores are
+calculated as the ratio of deaths to confirmations, that is
+Riskscore=100×deathsconfirmations . Risk scores equal to 100 indicate
+the highest risk while risk scores equal to 0 indicate the lowest risk.
+Areas are characterized as being especially vulnerable to loss if they
+have higher risk scores. For this assignment, exclude cruise ships
+(hint: they have lat and long coordinates of 0 or NA in this data set,
+filter this out before calculating risk scores).
+
+Which area of the world currently has the lowest risk score (if more
+than one, display the one with the most confirmations)? Which area of
+the world currently has the highest risk score (if more than one,
+display the one with the most confirmations)? How do risk scores in
+these areas compare to global risk score? Why might it be helpful to
+calculate metrics like risk scores for different areas of the world and
+what would their limitations be (what assumptions does risk score make
+and what important variables might be left out)?
+
+\hypertarget{objective-4.1}{%
+\paragraph{Objective 4.1}\label{objective-4.1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datasets respresent a cumlative sum by date, so last column represents }
+\CommentTok{\# summation for region}
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_confirmed\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(confirmed\_df, Province.State, }
+\NormalTok{                     Country.Region, }\FunctionTok{ncol}\NormalTok{(confirmed\_df))}
+\FunctionTok{names}\NormalTok{(confirmed\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"confirmed"}
+\NormalTok{deaths\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_deaths\_global.csv"}\NormalTok{, }
+                    \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{deaths\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(deaths\_df, Province.State, }
+\NormalTok{                  Country.Region, }\FunctionTok{ncol}\NormalTok{(deaths\_df))}
+\FunctionTok{names}\NormalTok{(deaths\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"deaths"}
+\NormalTok{recovered\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_recovered\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{recovered\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(recovered\_df, Province.State, }
+\NormalTok{                     Country.Region, }\FunctionTok{ncol}\NormalTok{(recovered\_df))}
+\FunctionTok{names}\NormalTok{(recovered\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"recovered"}
+
+\CommentTok{\# Combine the datasets into one and fill NA with 0}
+\NormalTok{combined\_df}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(confirmed\_df, recovered\_df, }
+                       \AttributeTok{by=}\FunctionTok{c}\NormalTok{(}\StringTok{"Province.State"}\NormalTok{, }\StringTok{"Country.Region"}\NormalTok{))}
+\NormalTok{combined\_df}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(combined\_df, deaths\_df, }
+                       \AttributeTok{by=}\FunctionTok{c}\NormalTok{(}\StringTok{"Province.State"}\NormalTok{, }\StringTok{"Country.Region"}\NormalTok{))}
+\NormalTok{combined\_df[}\FunctionTok{is.na}\NormalTok{(combined\_df)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\CommentTok{\# Assignment is unclear if we are to consider state and region or }
+\CommentTok{\# just region. Based on how data is formatted, I think it is cleaner }
+\CommentTok{\# and makes more sence to use region only.  For instance, in confirmed }
+\CommentTok{\# dataset, Canada is broken up by region, but in recovered dataset it }
+\CommentTok{\# uses Canada as a whole.  There are numerous examples of this in}
+\CommentTok{\# the data}
+\NormalTok{grouped\_df}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{summarise\_each}\NormalTok{(}\FunctionTok{group\_by}\NormalTok{(}
+  \FunctionTok{select}\NormalTok{(combined\_df, }\SpecialCharTok{{-}}\NormalTok{Province.State), Country.Region), sum))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: `summarise_each_()` was deprecated in dplyr 0.7.0.
+## i Please use `across()` instead.
+## i The deprecated feature was likely used in the dplyr package.
+##   Please report the issue at <]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;>.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Compute risk and burden by region}
+\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{risk}\OtherTok{\textless{}{-}}\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{deaths }\SpecialCharTok{/}\NormalTok{ grouped\_df}\SpecialCharTok{$}\NormalTok{recovered}
+\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{burden}\OtherTok{\textless{}{-}}\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{confirmed }\SpecialCharTok{*}\NormalTok{ grouped\_df}\SpecialCharTok{$}\NormalTok{risk}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Highest risk scores "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Highest risk scores
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df, }\SpecialCharTok{{-}}\NormalTok{risk, }\SpecialCharTok{{-}}\NormalTok{confirmed))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Country.Region confirmed recovered  deaths risk burden
+## 1             US 103802702         0 1123836  Inf    Inf
+## 2          India  44690738         0  530779  Inf    Inf
+## 3         France  39866718         0  166176  Inf    Inf
+## 4        Germany  38249060         0  168935  Inf    Inf
+## 5         Brazil  37076053         0  699276  Inf    Inf
+## 6          Japan  33320438         0   72997  Inf    Inf
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Highest risk scores, that are not infinite "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Highest risk scores, that are not infinite
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df[grouped\_df}\SpecialCharTok{$}\NormalTok{risk }\SpecialCharTok{!=} \ConstantTok{Inf}\NormalTok{,], }\SpecialCharTok{{-}}\NormalTok{risk, }\SpecialCharTok{{-}}\NormalTok{confirmed))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Country.Region confirmed recovered deaths risk burden
+## NA             <NA>        NA        NA     NA   NA     NA
+## NA.1           <NA>        NA        NA     NA   NA     NA
+## NA.2           <NA>        NA        NA     NA   NA     NA
+## NA.3           <NA>        NA        NA     NA   NA     NA
+## NA.4           <NA>        NA        NA     NA   NA     NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Lowest Risk Scores "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Lowest Risk Scores
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df, risk, confirmed))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Country.Region confirmed recovered deaths risk burden
+## 1     Korea, North         1         0      6  Inf    Inf
+## 2       MS Zaandam         9         0      2  Inf    Inf
+## 3 Diamond Princess       712         0     13  Inf    Inf
+## 4         Kiribati      5014         0     18  Inf    Inf
+## 5            Nauru      5247         0      1  Inf    Inf
+## 6            Palau      5991         0      9  Inf    Inf
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Lowest risk scores, that are not zero "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Lowest risk scores, that are not zero
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df[grouped\_df}\SpecialCharTok{$}\NormalTok{risk }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{,], risk, confirmed))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Country.Region confirmed recovered deaths risk burden
+## 94      Korea, North         1         0      6  Inf    Inf
+## 108       MS Zaandam         9         0      2  Inf    Inf
+## 50  Diamond Princess       712         0     13  Inf    Inf
+## 93          Kiribati      5014         0     18  Inf    Inf
+## 127            Nauru      5247         0      1  Inf    Inf
+## 138            Palau      5991         0      9  Inf    Inf
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{global\_confirmed}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(grouped\_df}\SpecialCharTok{$}\NormalTok{confirmed)}
+\NormalTok{global\_deaths}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(grouped\_df}\SpecialCharTok{$}\NormalTok{deaths)}
+\NormalTok{global\_recovered}\OtherTok{\textless{}{-}}\FunctionTok{sum}\NormalTok{(grouped\_df}\SpecialCharTok{$}\NormalTok{recovered)}
+\NormalTok{global\_risk}\OtherTok{\textless{}{-}}\NormalTok{global\_deaths }\SpecialCharTok{/}\NormalTok{ global\_recovered}
+\NormalTok{global\_burden}\OtherTok{\textless{}{-}}\NormalTok{global\_confirmed }\SpecialCharTok{*}\NormalTok{ global\_risk}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Global Data}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }
+    \StringTok{"Confirmed:"}\NormalTok{, global\_confirmed, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }
+    \StringTok{"Deaths:   "}\NormalTok{, global\_deaths, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
+    \StringTok{"Recovered:"}\NormalTok{, global\_recovered, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
+    \StringTok{"Risk:     "}\NormalTok{, global\_risk, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{,}
+    \StringTok{"Burden:   "}\NormalTok{, global\_burden, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Global Data
+##  Confirmed: 676570149 
+##  Deaths:    6881802 
+##  Recovered: 0 
+##  Risk:      Inf 
+##  Burden:    Inf
+\end{verbatim}
+
+Based on how the equation is written, any region which has had at least
+one person recover and no deaths will have a risk score of zero.
+Examples of this can be seen in the ``Lowest Risk Scores'' table above.
+When filtering out risk scores of 0, the regions of lowest risk can be
+seen in ``Lowest risk scores, that are not zero'' table above. Any
+region that has no recoveries and yet at least one death will have
+infinite risk. Examples of this can be seen in the ``Highest risk
+scores'' table above. If filtering out regions that have infinite risk,
+we see that the regions in the ``Highest risk scores, that are not
+infinite'' table above. When looking at the global score, it seems like
+the risk is high when considering it represents the people that have
+recovered versus those who have died. This value seems especially high
+when looking at the regions in the ``Lowest risk scores, that are not
+zero'' table, but when compared to the ``Highest risk scores, that are
+not infinite'' table where the risk scores are extremely high, the
+global risk seems less significant. This wide range in risk numbers
+indicates that while the risk in some regions is extremely high, for the
+most part, the risk is rather low globally.
+
+Risk assessments like this are important because they are good
+indicators of where danger is located or help is needed that can be used
+across many industries. For example, the travel industry may wish to
+impose bans on travelling to and from locations of high risk. The
+medical field can use these values to determine locations that are in
+the most need for medical support. Research fields may also use this
+data to help identify trends. For example, if a region has a high amount
+of recoveries and almost no deaths, i.e.~low risk score, it may be worth
+looking into what kind of treatment they are using in that region and if
+it could be used in other locations throughout the world. The thing to
+be careful though is that risk scores may be a little misleading. For
+instance, several regions have almost no cases, but one death and no
+recoveries causing a massive risk score. Even though these regions have
+pretty much no cases, they are still seen as extremely risky. This is
+why it could be beneficial to filter out the extremes before considering
+the data as valid.
+
+\hypertarget{objective-4.2}{%
+\paragraph{Objective 4.2}\label{objective-4.2}}
+
+You are asked to make two tables with the top 10 countries that have the
+most COVID-19 related confirmations and and deaths. Make sure to include
+all of the counts for the country, not just the counts for one area in
+the country. To do this we will need to sum all of the values for each
+country, create new data frames from these values, and use the package
+kable to convert those data frames into tables.
+
+Hint: Sum each country's counts by subsetting the data frame using a
+list of countries available in the data set. Use a for loop to iterate
+through the data frame using the list of countries. For each country,
+calculate the count sum and assign this value to a list.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Datasets respresent a cumlative sum by date, so last column represents }
+\CommentTok{\# sumation for region}
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_confirmed\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{confirmed\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(confirmed\_df, Province.State, }
+\NormalTok{                     Country.Region, }\FunctionTok{ncol}\NormalTok{(confirmed\_df))}
+\FunctionTok{names}\NormalTok{(confirmed\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"confirmed"}
+\NormalTok{deaths\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_deaths\_global.csv"}\NormalTok{, }
+                    \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{deaths\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(deaths\_df, Province.State, }
+\NormalTok{                  Country.Region, }\FunctionTok{ncol}\NormalTok{(deaths\_df))}
+\FunctionTok{names}\NormalTok{(deaths\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"deaths"}
+\NormalTok{recovered\_df}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/time\_series\_covid19\_recovered\_global.csv"}\NormalTok{, }
+                       \AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{stringsAsFactors=}\ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{recovered\_df}\OtherTok{\textless{}{-}}\FunctionTok{select}\NormalTok{(recovered\_df, Province.State, }
+\NormalTok{                     Country.Region, }\FunctionTok{ncol}\NormalTok{(recovered\_df))}
+\FunctionTok{names}\NormalTok{(recovered\_df)[}\DecValTok{3}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{"recovered"}
+
+\CommentTok{\# Combine the datasets into one and fill NA with 0}
+\NormalTok{combined\_df}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(confirmed\_df, recovered\_df, }
+                       \AttributeTok{by=}\FunctionTok{c}\NormalTok{(}\StringTok{"Province.State"}\NormalTok{, }\StringTok{"Country.Region"}\NormalTok{))}
+\NormalTok{combined\_df}\OtherTok{\textless{}{-}}\FunctionTok{full\_join}\NormalTok{(combined\_df, deaths\_df, }
+                       \AttributeTok{by=}\FunctionTok{c}\NormalTok{(}\StringTok{"Province.State"}\NormalTok{, }\StringTok{"Country.Region"}\NormalTok{))}
+\NormalTok{combined\_df[}\FunctionTok{is.na}\NormalTok{(combined\_df)] }\OtherTok{\textless{}{-}} \DecValTok{0}
+
+\CommentTok{\# Group and combine data by region}
+\NormalTok{grouped\_df}\OtherTok{\textless{}{-}}\FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{summarise\_each}\NormalTok{(}\FunctionTok{group\_by}\NormalTok{(}
+  \FunctionTok{select}\NormalTok{(combined\_df, }\SpecialCharTok{{-}}\NormalTok{Province.State), Country.Region), sum))}
+
+\CommentTok{\# Compute risk and burden by region}
+\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{risk}\OtherTok{\textless{}{-}}\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{deaths }\SpecialCharTok{/}\NormalTok{ grouped\_df}\SpecialCharTok{$}\NormalTok{recovered}
+\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{burden}\OtherTok{\textless{}{-}}\NormalTok{grouped\_df}\SpecialCharTok{$}\NormalTok{confirmed }\SpecialCharTok{*}\NormalTok{ grouped\_df}\SpecialCharTok{$}\NormalTok{risk}
+
+\NormalTok{confirmed\_tb }\OtherTok{=} \FunctionTok{kable}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df, }\SpecialCharTok{{-}}\NormalTok{confirmed)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,])}
+\NormalTok{deaths\_tb }\OtherTok{=} \FunctionTok{kable}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df, }\SpecialCharTok{{-}}\NormalTok{deaths)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,])}
+\NormalTok{recovered\_tb }\OtherTok{=} \FunctionTok{kable}\NormalTok{(}\FunctionTok{arrange}\NormalTok{(grouped\_df, }\SpecialCharTok{{-}}\NormalTok{recovered)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,])}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Top 5 confirmed regions "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Top 5 confirmed regions
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{confirmed\_tb}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+Country.Region & confirmed & recovered & deaths & risk & burden\\
+\hline
+US & 103802702 & 0 & 1123836 & Inf & Inf\\
+\hline
+India & 44690738 & 0 & 530779 & Inf & Inf\\
+\hline
+France & 39866718 & 0 & 166176 & Inf & Inf\\
+\hline
+Germany & 38249060 & 0 & 168935 & Inf & Inf\\
+\hline
+Brazil & 37076053 & 0 & 699276 & Inf & Inf\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Top 5 deaths regions "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Top 5 deaths regions
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{deaths\_tb}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+Country.Region & confirmed & recovered & deaths & risk & burden\\
+\hline
+US & 103802702 & 0 & 1123836 & Inf & Inf\\
+\hline
+Brazil & 37076053 & 0 & 699276 & Inf & Inf\\
+\hline
+India & 44690738 & 0 & 530779 & Inf & Inf\\
+\hline
+Russia & 22075858 & 0 & 388478 & Inf & Inf\\
+\hline
+Mexico & 7483444 & 0 & 333188 & Inf & Inf\\
+\hline
+\end{tabular}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Top 5 recovered regions"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Top 5 recovered regions
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{recovered\_tb}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+Country.Region & confirmed & recovered & deaths & risk & burden\\
+\hline
+Afghanistan & 209451 & 0 & 7896 & Inf & Inf\\
+\hline
+Albania & 334457 & 0 & 3598 & Inf & Inf\\
+\hline
+Algeria & 271496 & 0 & 6881 & Inf & Inf\\
+\hline
+Andorra & 47890 & 0 & 165 & Inf & Inf\\
+\hline
+Angola & 105288 & 0 & 1933 & Inf & Inf\\
+\hline
+\end{tabular}
+
+\hypertarget{github-log}{%
+\subsubsection{GitHub Log}\label{github-log}}
+
+\#\texttt{\{bash\ gitlog\}\ \#git\ log\ -\/-pretty=format:"\%nSubject:\ \%s\%nAuthor:\ \%aN\%nDate:\ \%aD\%nBody:\ \%b"\ \#}
+
+Could not get the above script to work correctly on my system. This is
+the output from running the above script directly from the command line:
+
+Subject: Update README.md Author: wesne Date: Thu, 6 Apr 2023 10:20:17
+-0700 Body:
+
+Subject: Added first rev of readme.md Author: Chato1969 Date: Wed, 5 Apr
+2023 23:28:47 -0700 Body:
+
+Subject: Added first rev of index.md Author: Chato1969 Date: Wed, 5 Apr
+2023 23:25:33 -0700 Body:
+
+Subject: Updated responses to be more generic and automatic such that
+they are created based on data pulled automatically from the table.
+Fixed typos and minor bugs. Author: Chato1969 Date: Wed, 5 Apr 2023
+18:06:15 -0700 Body:
+
+Subject: Merge branch `new-chart' Author: Wesley Newcomb
+
+\end{document}

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Name: Wesley Newcomb Partner: Manuel Ricardo Vargas and Diva Medina Camp" />
 
-<meta name="date" content="2023-04-05" />
+<meta name="date" content="2023-04-06" />
 
 <title>Project 1</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Project 1</h1>
 <h4 class="author">Name: Wesley Newcomb Partner: Manuel Ricardo Vargas
 and Diva Medina Camp</h4>
-<h4 class="date">2023-04-05</h4>
+<h4 class="date">2023-04-06</h4>
 
 </div>
 
@@ -1204,7 +1204,62 @@ Inf
 </div>
 <div id="github-log" class="section level3">
 <h3>GitHub Log</h3>
-<p>#<code>{bash gitlog}  #git log --pretty=format:&quot;%nSubject: %s%nAuthor: %aN%nDate: %aD%nBody: %b&quot; #</code></p>
+<p>#<code>{bash gitlog} #git log --pretty=format:&quot;%nSubject: %s%nAuthor: %aN%nDate: %aD%nBody: %b&quot; #</code></p>
+<pre class="r"><code>#Could not get the above script to work correctly on my system.This is the output from running the above script directly from the command line:
+
+cat(&quot;\n&quot;,
+    &quot;Subject:&quot;, &#39;Update README.md&#39;,&quot;\n&quot;, 
+    &quot;Author:&quot;, &#39;wesne&#39;,&quot;\n&quot;,
+    &quot;Date:&quot;, &#39;Thu, 6 Apr 2023 10:20:17 -0700&#39;,&quot;\n&quot;,
+    &quot;Body:&quot;,&quot;Added names to the README file&quot;,&quot;\n\n&quot;,
+    &quot;Subject:&quot;, &quot;Added first rev of readme.md&quot;,&quot;\n&quot;,
+    &quot;Author:&quot;, &#39;Chato1969&#39;,&quot;\n&quot;,
+    &quot;Date:&quot;, &quot;Wed, 5 Apr 2023 23:28:47 -0700&quot;,&quot;\n&quot;,
+    &quot;Body:&quot;,&quot;\n\n&quot;,
+    &quot;Subject:&quot;,&#39; Added first rev of index.md&#39;,&quot;\n&quot;, 
+    &quot;Author:&quot;, &#39;Chato1969&#39;, &quot;\n&quot;,
+    &quot;Date:&quot;, &#39;Wed, 5 Apr 2023 23:25:33 -0700&#39;,&quot;\n&quot;,
+    &quot;Body:&quot;,&quot;\n\n&quot;,
+    &quot;Subject:&quot;, &#39;Updated responses to be more generic and automatic such that they are created based on data&#39;,&quot;\n&quot;,&#39;pulled automatically from the table. Fixed typos and minor bugs.&#39;,&quot;\n&quot;,
+    &quot;Author:&quot;, &#39;Chato1969&#39;,&quot;\n&quot;,
+    &quot;Date:&quot;, &#39;Wed, 5 Apr 2023 18:06:15 -0700&#39;,&quot;\n&quot;,
+    &quot;Body:&quot;,&quot;\n\n&quot;,
+    &quot;Subject:&quot;,&#39; Added first rev of index.md&#39;,&quot;\n&quot;, 
+    &quot;Author:&quot;, &#39;Chato1969&#39;, &quot;\n&quot;,
+    &quot;Date:&quot;, &#39;Wed, 5 Apr 2023 23:25:33 -0700&#39;,&quot;\n&quot;,
+    &quot;Body:&quot;,&quot;\n\n&quot;,
+    &quot;Subject:&quot;, &quot;Merge branch &#39;new-chart&#39;&quot;,&quot;\n&quot;,
+    &quot;Author:&quot;, &#39;Wesley Newcomb&#39;,&quot;\n\n&quot;
+    ) </code></pre>
+<pre><code>## 
+##  Subject: Update README.md 
+##  Author: wesne 
+##  Date: Thu, 6 Apr 2023 10:20:17 -0700 
+##  Body: Added names to the README file 
+## 
+##  Subject: Added first rev of readme.md 
+##  Author: Chato1969 
+##  Date: Wed, 5 Apr 2023 23:28:47 -0700 
+##  Body: 
+## 
+##  Subject:  Added first rev of index.md 
+##  Author: Chato1969 
+##  Date: Wed, 5 Apr 2023 23:25:33 -0700 
+##  Body: 
+## 
+##  Subject: Updated responses to be more generic and automatic such that they are created based on data 
+##  pulled automatically from the table. Fixed typos and minor bugs. 
+##  Author: Chato1969 
+##  Date: Wed, 5 Apr 2023 18:06:15 -0700 
+##  Body: 
+## 
+##  Subject:  Added first rev of index.md 
+##  Author: Chato1969 
+##  Date: Wed, 5 Apr 2023 23:25:33 -0700 
+##  Body: 
+## 
+##  Subject: Merge branch &#39;new-chart&#39; 
+##  Author: Wesley Newcomb</code></pre>
 </div>
 </div>
 
