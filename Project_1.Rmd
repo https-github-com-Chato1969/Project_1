@@ -362,7 +362,7 @@ recovered_tb
 #git log --pretty=format:"%nSubject: %s%nAuthor: %aN%nDate: %aD%nBody: %b"
 #```
 
-```{r}
+```{r, echo=FALSE}
 #Could not get the above script to work correctly on my system.This is the output from running the above script directly from the command line:
 
 cat("\n",
@@ -388,6 +388,6 @@ cat("\n",
     "Body:","\n\n",
     "Subject:", "Merge branch 'new-chart'","\n",
     "Author:", 'Wesley Newcomb',"\n\n"
-    ) 
+    )
 ```
 
